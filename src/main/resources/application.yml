@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: tickethub
+  profiles:
+    active: local

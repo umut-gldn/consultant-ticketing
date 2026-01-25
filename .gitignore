@@ -1,0 +1,20 @@
+# Build
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+
+# Environment
+.env
+application-local.yml
+
+# OS
+Thumbs.db
