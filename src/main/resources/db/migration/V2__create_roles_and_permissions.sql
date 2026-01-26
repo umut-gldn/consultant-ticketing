@@ -10,7 +10,7 @@ CREATE TABLE roles (
                        name VARCHAR(100) NOT NULL,
                        display_name VARCHAR(255) NOT NULL,
                        description TEXT,
-                       scope VARCHAR(50) NOT NULL CHECK (scope IN ('company', 'project')),
+                       scope VARCHAR(50) NOT NULL CHECK (scope IN ('COMPANY', 'PROJECT')),
                        is_system_role BOOLEAN NOT NULL DEFAULT true,
                        created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
                        UNIQUE(name, scope)

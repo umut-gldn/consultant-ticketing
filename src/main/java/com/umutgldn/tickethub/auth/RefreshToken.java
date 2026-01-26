@@ -5,14 +5,12 @@ import com.umutgldn.tickethub.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "refresh_tokens")
 @Getter
-@Setter
 @NoArgsConstructor
 public class RefreshToken extends BaseEntity {
 
@@ -35,6 +33,13 @@ public class RefreshToken extends BaseEntity {
     @Column(name = "ip_address")
     private String ipAddress;
 
+    public RefreshToken(User user, String token, Instant expiresAt, String deviceInfo, String ipAddress) {
+        this.user = user;
+        this.token = token;
+        this.expiresAt = expiresAt;
+        this.deviceInfo = deviceInfo;
+        this.ipAddress = ipAddress;
+    }
     //entity's behavior
     public boolean isExpired(Instant now){
         return expiresAt.isBefore(now);

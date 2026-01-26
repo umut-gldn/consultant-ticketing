@@ -29,7 +29,8 @@ public class Role extends BaseEntity {
     private boolean isSystemRole=true;
 
     public enum RoleScope {
-        company,project
+        COMPANY,
+        PROJECT
     }
 
 }

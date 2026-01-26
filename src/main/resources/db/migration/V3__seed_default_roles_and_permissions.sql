@@ -3,19 +3,19 @@
 -- ============================================================
 
 INSERT INTO roles (id,name, display_name, description, scope, is_system_role) VALUES
-                                                                               (gen_random_uuid(),'owner', 'Firma Sahibi', 'Firma uzerinde tam yetki', 'company', true),
-                                                                               (gen_random_uuid(),'admin', 'Firma Yöneticisi', 'Firma yönetim yetkileri', 'company', true),
-                                                                               (gen_random_uuid(),'member', 'Firma Üyesi', 'Temel firma üyeliği', 'company', true);
+                                                                               (gen_random_uuid(),'owner', 'Firma Sahibi', 'Firma uzerinde tam yetki', 'COMPANY', true),
+                                                                               (gen_random_uuid(),'admin', 'Firma Yöneticisi', 'Firma yönetim yetkileri', 'COMPANY', true),
+                                                                               (gen_random_uuid(),'member', 'Firma Üyesi', 'Temel firma üyeliği', 'COMPANY', true);
 
 -- ============================================================
 -- PROJECT ROLES (scope: project)
 -- ============================================================
 
 INSERT INTO roles (id, name, display_name, description, scope, is_system_role) VALUES
-                                                                               (gen_random_uuid(),'customer_viewer', 'Sadece Görüntüleyici', 'Sadece ticketları ve yorumları görüntüleyebilir', 'project', true),
-                                                                               (gen_random_uuid(),'customer_standard', 'Standart Kullanıcı', 'Ticket açabilir, yorum yapabilir', 'project', true),
-                                                                               (gen_random_uuid(),'customer_advanced', 'Gelişmiş Kullanıcı', 'Ticket açabilir, güncelleyebilir, kapatabilir', 'project', true),
-                                                                               (gen_random_uuid(),'project_admin', 'Proje Yöneticisi', 'Proje içinde tüm yetkilere sahip', 'project', true);
+                                                                               (gen_random_uuid(),'customer_viewer', 'Sadece Görüntüleyici', 'Sadece ticketları ve yorumları görüntüleyebilir', 'PROJECT', true),
+                                                                               (gen_random_uuid(),'customer_standard', 'Standart Kullanıcı', 'Ticket açabilir, yorum yapabilir', 'PROJECT', true),
+                                                                               (gen_random_uuid(),'customer_advanced', 'Gelişmiş Kullanıcı', 'Ticket açabilir, güncelleyebilir, kapatabilir', 'PROJECT', true),
+                                                                               (gen_random_uuid(),'project_admin', 'Proje Yöneticisi', 'Proje içinde tüm yetkilere sahip', 'PROJECT', true);
 
 -- ============================================================
 -- PERMISSIONS

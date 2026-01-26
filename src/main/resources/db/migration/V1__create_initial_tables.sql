@@ -5,7 +5,7 @@
 CREATE TABLE companies (
                            id UUID PRIMARY KEY,
                            name VARCHAR(255) NOT NULL,
-                           type VARCHAR(50) NOT NULL CHECK (type IN ('consultant', 'client')),
+                           type VARCHAR(50) NOT NULL CHECK (type IN ('CONSULTANT', 'CLIENT')),
                            email VARCHAR(255),
                            phone VARCHAR(50),
                            is_active BOOLEAN NOT NULL DEFAULT true,

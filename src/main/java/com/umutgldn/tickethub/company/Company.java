@@ -28,7 +28,8 @@ public class Company extends AuditableEntity {
     private boolean isActive=true;
     
     public enum CompanyType {
-        consultant, client
+        CONSULTANT,
+        CLIENT
     }
 
 }
