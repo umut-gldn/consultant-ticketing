@@ -1,13 +1,13 @@
 package com.umutgldn.tickethub;
 
-import com.umutgldn.tickethub.auth.JwtProperties;
+import com.umutgldn.tickethub.auth.config.JwtProperties;
+import com.umutgldn.tickethub.auth.config.LoginSecurityProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties(JwtProperties.class)
+@EnableConfigurationProperties({JwtProperties.class, LoginSecurityProperties.class})
 public class TickethubApplication {
 
 	public static void main(String[] args) {

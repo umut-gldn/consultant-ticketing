@@ -1,4 +1,4 @@
-package com.umutgldn.tickethub.auth;
+package com.umutgldn.tickethub.auth.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

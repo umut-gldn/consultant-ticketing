@@ -1,5 +1,8 @@
-package com.umutgldn.tickethub.auth;
+package com.umutgldn.tickethub.auth.service;
 
+import com.umutgldn.tickethub.auth.config.JwtProperties;
+import com.umutgldn.tickethub.auth.entity.RefreshToken;
+import com.umutgldn.tickethub.auth.repository.RefreshTokenRepository;
 import com.umutgldn.tickethub.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,7 +28,7 @@ public class TokenService {
     }
 
     @Transactional
-    public RefreshToken createAndSave(User user,String plainToken, String deviceInfo,String ipAddress){
+    public RefreshToken createAndSave(User user, String plainToken, String deviceInfo, String ipAddress){
         Instant expires= Instant.now().plusMillis(jwtProperties.refreshTokenExpiration());
         RefreshToken refreshToken= new RefreshToken(user,hashToken(plainToken),expires,deviceInfo,ipAddress);
         return refreshTokenRepository.save(refreshToken);

@@ -1,4 +1,4 @@
-package com.umutgldn.tickethub.auth;
+package com.umutgldn.tickethub.auth.entity;
 
 import com.umutgldn.tickethub.common.BaseEntity;
 import com.umutgldn.tickethub.user.User;
@@ -54,6 +54,9 @@ public class RefreshToken extends BaseEntity {
     }
 
     public void revoke(Instant now){
+        if(this.revokedAt!=null){
+            throw new IllegalStateException("Token is already revoked");
+        }
         this.revokedAt=now;
     }
 

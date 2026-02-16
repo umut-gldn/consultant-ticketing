@@ -6,30 +6,43 @@ import com.umutgldn.tickethub.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "project_user_permissions")
 @Getter
-@Setter
 @NoArgsConstructor
 public class ProjectPermission extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_user_id",nullable = false)
+    @JoinColumn(name = "project_user_id", nullable = false)
     private ProjectUser projectUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "permission_id",nullable = false)
+    @JoinColumn(name = "permission_id", nullable = false)
     private Permission permission;
 
     @Column(name = "is_granted")
-    private boolean isGranted=true;
+    private boolean isGranted = true;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name ="granted_by",nullable = false)
+    @JoinColumn(name = "granted_by", nullable = false)
     private User grantedBy;
 
+    public ProjectPermission(ProjectUser projectUser, Permission permission, boolean isGranted, User grantedBy) {
+        this.projectUser = projectUser;
+        this.permission = permission;
+        this.isGranted = isGranted;
+        this.grantedBy = grantedBy;
+    }
 
+    public void grant(User grantedBy) {
+        this.isGranted = true;
+        this.grantedBy = grantedBy;
+    }
+
+    public void revoke(User revokedBy) {
+        this.isGranted = false;
+        this.grantedBy = revokedBy;
+    }
 
 }

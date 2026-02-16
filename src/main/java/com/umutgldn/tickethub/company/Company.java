@@ -9,7 +9,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "companies")
 @Getter
-@Setter
 @NoArgsConstructor
 public class Company extends AuditableEntity {
 
@@ -30,6 +29,35 @@ public class Company extends AuditableEntity {
     public enum CompanyType {
         CONSULTANT,
         CLIENT
+    }
+
+    public Company(String name, String email, String phone, CompanyType type) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.type = type;
+    }
+
+    public boolean isConsultant(){
+        return this.type==CompanyType.CONSULTANT;
+    }
+
+    public boolean isClient(){
+        return this.type==CompanyType.CLIENT;
+    }
+
+    public void deactivate(){
+        this.isActive=false;
+    }
+
+    public void activate(){
+        this.isActive=true;
+    }
+
+    public void updateInfo(String email, String phone,String name){
+        this.name=name;
+        this.email=email;
+        this.phone=phone;
     }
 
 }

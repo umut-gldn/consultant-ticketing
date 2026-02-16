@@ -43,6 +43,9 @@ public class CompanyUser {
         this.user = user;
         this.role = role;
     }
+    public void changeRole(Role newRole){
+        this.role = newRole;
+    }
 
     @PrePersist
     protected void onCreate(){

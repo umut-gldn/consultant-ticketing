@@ -1,5 +1,6 @@
-package com.umutgldn.tickethub.auth;
+package com.umutgldn.tickethub.auth.repository;
 
+import com.umutgldn.tickethub.auth.entity.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

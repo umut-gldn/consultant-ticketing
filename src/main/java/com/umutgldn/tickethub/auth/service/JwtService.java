@@ -1,5 +1,6 @@
-package com.umutgldn.tickethub.auth;
+package com.umutgldn.tickethub.auth.service;
 
+import com.umutgldn.tickethub.auth.config.JwtProperties;
 import com.umutgldn.tickethub.auth.exception.InvalidTokenException;
 import com.umutgldn.tickethub.auth.exception.TokenExpiredException;
 import io.jsonwebtoken.Claims;
@@ -7,14 +8,12 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Date;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
