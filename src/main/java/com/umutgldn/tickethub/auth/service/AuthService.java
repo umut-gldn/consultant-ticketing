@@ -52,9 +52,13 @@ public class AuthService {
         if(existingToken.isExpired(Instant.now())){
             throw  new TokenExpiredException("Refresh token has expired");
         }
-        tokenService.revoke(existingToken);
+
         User user=existingToken.getUser();
+        userService.validateAccountStatus(user);
+
+        tokenService.revoke(existingToken);
         log.info("Token refreshed for user :{}", user.getEmail());
+
         return generateToken(user, deviceInfo, ipAddress);
     }
 
